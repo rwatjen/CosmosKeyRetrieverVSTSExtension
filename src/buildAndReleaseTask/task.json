@@ -3,7 +3,7 @@
     "name": "CosmosKeyRetriever",
     "friendlyName": "Cosmos DB Key Retriever",
     "description": "Retrieve access keys for a Cosmos DB account version 0.5.0",
-    "helpMarkDown": "",
+    "helpMarkDown": "Go to the [Github issues](https://github.com/rwatjen/CosmosKeyRetrieverVSTSExtension/issues) to ask for help.",
     "category": "Utility",
     "visibility": [
         "Release"
