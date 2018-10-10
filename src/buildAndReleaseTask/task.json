@@ -2,7 +2,7 @@
     "id": "11f18d28-72b3-41e0-a85b-291e2739752b",
     "name": "CosmosKeyRetriever",
     "friendlyName": "Cosmos DB Key Retriever",
-    "description": "Retrieve access keys for a Cosmos DB account version 0.4.0",
+    "description": "Retrieve access keys for a Cosmos DB account version 0.5.0",
     "helpMarkDown": "",
     "category": "Utility",
     "visibility": [
@@ -11,11 +11,10 @@
     "author": "Rasmus Wätjen",
     "version": {
         "Major": 0,
-        "Minor": 4,
+        "Minor": 5,
         "Patch": 0
     },
-    "demands": [
-    ],
+    "demands": [],
     "instanceNameFormat": "Retrieve Cosmos Key for $(cosmosDbAccountName)",
     "groups": [
         {
@@ -40,19 +39,25 @@
             }
         },
         {
-            "name": "resourceGroupName",
-            "type": "string",
+            "name": "ResourceGroupName",
+            "type": "pickList",
             "label": "Resource Group where the Cosmos DB instance is located",
             "defaultValue": "",
             "required": true,
+            "properties": {
+                "EditableOptions": "True"
+            },
             "helpMarkDown": "The resource group in which the Cosmos DB account is."
         },
         {
             "name": "cosmosDbAccountName",
-            "type": "string",
+            "type": "pickList",
             "label": "Account name for the Cosmos DB instance",
             "defaultValue": "",
             "required": true,
+            "properties": {
+                "EditableOptions": "True"
+            },
             "helpMarkDown": "The Cosmos DB account name (the server name without \"documents.azure.com\")"
         },
         {
@@ -73,9 +78,22 @@
             "name": "outputVariableName",
             "type": "string",
             "label": "Output variable name",
-            "required":"true",
+            "required": "true",
             "defaultValue": "CosmosKey",
             "helpMarkDown": "Enter the name of the variable that will receive the key value"
+        }
+    ],
+    "dataSourceBindings": [
+        {
+            "target": "ResourceGroupName",
+            "endpointId": "$(ConnectedServiceNameARM)",
+            "dataSourceName": "AzureResourceGroups"
+        },
+        {
+            "target": "cosmosDbAccountName",
+            "endpointId": "$(ConnectedServiceNameARM)",
+            "endpointUrl": "{{{endpoint.url}}}subscriptions/{{{endpoint.subscriptionId}}}/resourceGroups/$(ResourceGroupName)/providers/Microsoft.DocumentDB/databaseAccounts/?api-version=2015-04-08",
+            "resultSelector": "jsonpath:$.value[*].name"
         }
     ],
     "execution": {

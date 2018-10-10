@@ -1,6 +1,6 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$resourceGroupName = Get-VstsInput -Name "resourceGroupName" -Require
+$resourceGroupName = Get-VstsInput -Name "ResourceGroupName" -Require
 $cosmosDbAccountName = Get-VstsInput -Name "cosmosDbAccountName" -Require
 $connectedServiceNameARM = Get-VstsInput -Name "ConnectedServiceNameARM" -Require
 $outputVariableName = Get-VstsInput -Name "OutputVariableName" -Default "CosmosKey"
