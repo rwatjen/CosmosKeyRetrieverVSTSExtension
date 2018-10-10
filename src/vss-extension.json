@@ -1,0 +1,36 @@
+{
+    "manifestVersion": 1,
+    "id": "CosmosKeyRetrieverExtension",
+    "name": "Cosmos DB Key Retriever extension",
+    "version": "0.4.0",
+    "publisher": "RasmusWatjen",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Retrieve keys from Cosmos DB.",
+    "categories": [
+        "Build and release"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"        
+    },
+    "files": [
+        {
+            "path": "buildAndReleaseTask"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "CosmosKeyRetriever",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "buildAndReleaseTask"
+            }
+        }
+    ]
+}
