@@ -2,25 +2,62 @@
     "manifestVersion": 1,
     "id": "CosmosKeyRetrieverExtension",
     "name": "Cosmos DB Key Retriever extension",
-    "version": "0.5.0",
+    "version": "1.0.0",
     "publisher": "RasmusWatjen",
+    "public": true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
-    ],    
+    ],
     "description": "Retrieve keys from Cosmos DB.",
     "categories": [
         "Build and release"
     ],
     "icons": {
-        "default": "images/extension-icon.png"        
+        "default": "images/extension-icon-square.png"
     },
+    "tags": [
+        "releasemanagement",
+        "cosmos",
+        "azurerm"
+    ],
     "files": [
         {
             "path": "buildAndReleaseTask"
+        },
+        {
+            "path": "images/settings.png",
+            "addressable": "true"
         }
     ],
+    "content": {
+        "details": {
+            "path": "README.md"
+        }
+    },
+    "branding": {
+        "theme": "light",
+        "color": "rgb(91, 198, 116)"
+    },
+    "screenshots": [
+        {
+            "path": "images/settings.png"
+        }
+    ],
+    "links": {
+        "license": {
+            "uri": "https://raw.githubusercontent.com/rwatjen/CosmosKeyRetrieverVSTSExtension/development/LICENSE.txt"
+        },
+        "issues": {
+            "uri": "https://github.com/rwatjen/CosmosKeyRetrieverVSTSExtension/issues"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/rwatjen/CosmosKeyRetrieverVSTSExtension"
+    },
+
     "contributions": [
         {
             "id": "CosmosKeyRetriever",
